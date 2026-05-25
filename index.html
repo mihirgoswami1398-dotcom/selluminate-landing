@@ -356,6 +356,70 @@
       }
     }
 
+    .blog-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+    }
+
+    .blog-section h2 {
+      font-size: 32px;
+      color: #1a3328;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .blog-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid #e4e2db;
+      border-top: 3px solid #b7e4ce;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+
+    .blog-card:hover {
+      border-top-color: #2d6a4f;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+
+    .blog-tag {
+      display: inline-block;
+      background: #f4f2ed;
+      color: #2d6a4f;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .blog-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a3328;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+
+    .blog-card .read-more {
+      font-size: 13px;
+      color: #2d6a4f;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
     @media(max-width:700px) {
       .features {
         grid-template-columns: 1fr
@@ -380,6 +444,14 @@
       .step-num {
         margin-bottom: 16px;
       }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer .footer-grid {
+        grid-template-columns: 1fr !important;
+      }
     }
   </style>
 </head>
@@ -392,6 +464,7 @@
       <span style="color:#fff;font-size:24px;font-weight:800;">Selluminate</span>
     </div>
     <nav>
+      <a href="#blog">Guides</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
       <a href="https://apps.shopify.com/selluminate"
@@ -535,6 +608,27 @@
     </div>
   </div>
 
+  <div class="blog-section" id="blog">
+    <h2>From the blog</h2>
+    <div class="blog-grid">
+      <a class="blog-card" href="/how-to-generate-bulk-product-listings-shopify-ai.html">
+        <span class="blog-tag">Guide</span>
+        <h3>How to Generate Bulk Product Listings for Shopify Using AI (500 Products in Minutes)</h3>
+        <span class="read-more">Read article →</span>
+      </a>
+      <a class="blog-card" href="/ai-tool-generate-shopify-listings-from-product-photos.html">
+        <span class="blog-tag">Deep Dive</span>
+        <h3>The Best AI Tool to Generate Shopify Listings from Product Photos</h3>
+        <span class="read-more">Read article →</span>
+      </a>
+      <a class="blog-card" href="/how-dropshippers-list-500-products-shopify-under-an-hour.html">
+        <span class="blog-tag">For Dropshippers</span>
+        <h3>How Dropshippers Can List 500 Products on Shopify in Under an Hour</h3>
+        <span class="read-more">Read article →</span>
+      </a>
+    </div>
+  </div>
+
   <div class="final-cta">
     <h2>Stop listing products one by one</h2>
     <p>Selluminate processes your entire catalog at once. 10 free generations included. No credit card required.</p>
@@ -542,11 +636,33 @@
   </div>
 
   <footer>
-    <div style="margin-bottom:10px">
-      <a href="/privacy.html">Privacy Policy</a>
-      <a href="/terms.html">Terms of Service</a>
+    <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:40px 40px 32px;text-align:left;">
+      <div>
+        <div style="color:#fff;font-weight:700;font-size:14px;margin-bottom:16px;">Selluminate</div>
+        <div style="color:rgba(255,255,255,.5);font-size:13px;line-height:1.8;">AI bulk product listing generator for Shopify. Generate 500 listings from photos in minutes.</div>
+      </div>
+      <div>
+        <div style="color:#fff;font-weight:700;font-size:14px;margin-bottom:16px;">Product</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="https://apps.shopify.com/selluminate" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;">Install Free</a>
+          <a href="#how-it-works" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;">How it works</a>
+          <a href="#blog" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;">Pricing</a>
+          <a href="/privacy.html" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;">Privacy Policy</a>
+          <a href="/terms.html" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;">Terms of Service</a>
+        </div>
+      </div>
+      <div>
+        <div style="color:#fff;font-weight:700;font-size:14px;margin-bottom:16px;">Guides</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/how-to-generate-bulk-product-listings-shopify-ai.html" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;line-height:1.5;">How to Generate Bulk Product Listings for Shopify Using AI</a>
+          <a href="/ai-tool-generate-shopify-listings-from-product-photos.html" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;line-height:1.5;">Best AI Tool to Generate Shopify Listings from Photos</a>
+          <a href="/how-dropshippers-list-500-products-shopify-under-an-hour.html" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;line-height:1.5;">How Dropshippers Can List 500 Products in Under an Hour</a>
+        </div>
+      </div>
     </div>
-    &copy; 2026 Selluminate. All rights reserved.
+    <div style="border-top:1px solid rgba(255,255,255,.1);padding:20px 40px;text-align:center;color:rgba(255,255,255,.4);font-size:13px;">
+      &copy; 2026 Selluminate. All rights reserved.
+    </div>
   </footer>
 </body>
 
