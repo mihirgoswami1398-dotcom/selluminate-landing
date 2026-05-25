@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selluminate — AI Bulk Product Listing Generator for Shopify | Generate 500 Listings from Photos</title>
+  <meta name="description" content="Upload product photos and generate complete SEO-optimized listings for your entire Shopify catalog simultaneously. Titles, descriptions, bullet points, tags, and metadata — all from just a photo. 10 free generations." />
+  <meta name="keywords" content="AI bulk listing generator Shopify, bulk product listing generator, AI product descriptions from photos, generate Shopify listings from photos, bulk AI product listing tool, bulk listing tool for Shopify dropshippers" />
+  <link rel="icon" type="image/png" href="selluminate icon final.png">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f2ed;
+      color: #1a1a1a
+    }
+
+    header {
+      background: #1a3328;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -.3px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      color: #b7e4ce
+    }
+
+    nav a {
+      color: #b7e4ce;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px
+    }
+
+    @media (max-width: 640px) {
+      nav a:not([style]) {
+        display: none;
+      }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 40px 60px
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      font-weight: 700;
+      color: #1a3328;
+      margin-bottom: 16px;
+      line-height: 1.2
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #5a5a5a;
+      max-width: 580px;
+      margin: 0 auto 32px;
+      line-height: 1.6
+    }
+
+    .btn {
+      display: inline-block;
+      background: #2d6a4f;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600
+    }
+
+    .btn:hover {
+      background: #1b4332
+    }
+
+    .sub {
+      font-size: 13px;
+      color: #9a9a9a;
+      margin-top: 12px
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px 80px
+    }
+
+    .feature {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid #e4e2db;
+      border-top: 3px solid #b7e4ce;
+    }
+
+    .feature h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1a3328
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: #5a5a5a;
+      line-height: 1.6
+    }
+
+    .icon {
+      font-size: 28px;
+      margin-bottom: 12px
+    }
+
+    footer {
+      background: #1a3328;
+      color: rgba(255, 255, 255, .5);
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, .6);
+      text-decoration: none;
+      margin: 0 12px
+    }
+
+    footer a:hover {
+      color: #fff
+    }
+
+    .pricing-section {
+      padding: 0 40px 100px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px 24px;
+      border: 1px solid #e4e2db;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pricing-card h3 {
+      font-size: 18px;
+      color: #1a3328;
+      margin-bottom: 12px;
+    }
+
+    .pricing-card .price {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a3328;
+      margin-bottom: 16px;
+    }
+
+    .pricing-card .price span {
+      font-size: 15px;
+      color: #5a5a5a;
+      font-weight: 400;
+    }
+
+    .pricing-card p {
+      font-size: 14px;
+      color: #5a5a5a;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+      padding: 12px;
+    }
+
+    .pricing-card .btn-outline {
+      background: transparent;
+      color: #1a3328;
+      border: 2px solid #1a3328;
+      padding: 10px;
+    }
+
+    .pricing-card .btn-outline:hover {
+      background: #e4e2db;
+    }
+
+    .how-it-works {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    .how-it-works h2,
+    .who-for h2 {
+      font-size: 32px;
+      color: #1a3328;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      background: #fff;
+      padding: 32px;
+      border-radius: 12px;
+      border: 1px solid #e4e2db;
+    }
+
+    .step-num {
+      font-size: 48px;
+      font-weight: 800;
+      color: #b7e4ce;
+      line-height: 1;
+      margin-right: 24px;
+    }
+
+    .step-content h3 {
+      font-size: 20px;
+      color: #1a3328;
+      margin-bottom: 8px;
+    }
+
+    .step-content p {
+      font-size: 16px;
+      color: #5a5a5a;
+      line-height: 1.6;
+    }
+
+    .who-for {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px 60px;
+    }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .who-card {
+      background: #1a3328;
+      color: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .who-card p {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #fff;
+    }
+
+    .who-icon {
+      font-size: 24px;
+      color: #b7e4ce;
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
+      text-align: left;
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      font-size: 13px;
+      color: #5a5a5a;
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #2d6a4f;
+      font-weight: bold;
+    }
+
+    .pricing-card p {
+      flex-grow: 0;
+      margin-bottom: 16px;
+    }
+
+    .final-cta {
+      background: #1a3328;
+      color: #fff;
+      text-align: center;
+      padding: 80px 40px;
+      margin-top: 40px;
+    }
+
+    .final-cta h2 {
+      font-size: 36px;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .final-cta p {
+      font-size: 18px;
+      color: #b7e4ce;
+      margin-bottom: 32px;
+    }
+
+    .final-cta .btn {
+      background: #fff;
+      color: #1a3328;
+    }
+
+    .final-cta .btn:hover {
+      background: #f4f2ed;
+    }
+
+    @media(max-width:900px) {
+      .pricing-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:700px) {
+      .features {
+        grid-template-columns: 1fr
+      }
+
+      .pricing-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 28px
+      }
+
+      .who-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        flex-direction: column;
+      }
+
+      .step-num {
+        margin-bottom: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="selluminate icon final.png"
+        style="height:48px;width:48px;border-radius:8px;vertical-align:middle;margin-right:10px;">
+      <span style="color:#fff;font-size:24px;font-weight:800;">Selluminate</span>
+    </div>
+    <nav>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="https://apps.shopify.com/selluminate"
+        style="background:#b7e4ce;color:#1a3328;padding:10px 20px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;margin-left:24px;">Install
+        Free</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>AI Bulk Product Listing Generator for Shopify — Generate 500 Listings from Photos Instantly</h1>
+    <div style="font-size: 15px; font-weight: 600; color: #1a3328; margin-bottom: 20px;">Upload 1 photo or 500 —
+      Selluminate processes them all at once · Listed on the Shopify App Store</div>
+    <p>Upload as many product photos as you want. Selluminate generates complete, SEO-optimized listings for your entire
+      catalog simultaneously — titles, descriptions, bullet points, SEO tags, and more. Publish everything to Shopify in
+      one click.</p>
+    <a class="btn" href="https://apps.shopify.com/selluminate">Get Started Free</a>
+    <div class="sub">No credit card required · 10 free listings</div>
+  </div>
+
+  <div class="features" style="padding-bottom:0">
+    <div class="feature">
+      <div class="icon">📸</div>
+      <h3>Bulk upload — no limits</h3>
+      <p>Upload 1 photo or 500 at once. Every photo becomes a complete AI-generated listing simultaneously. No waiting,
+        no one-at-a-time.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">✨</div>
+      <h3>AI generates everything</h3>
+      <p>Title, description, bullet points, SEO title, meta description, tags, categories — fully written for every
+        single product at once.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🚀</div>
+      <h3>Publish your entire catalog</h3>
+      <p>One click publishes every listing directly to your Shopify store. Or export your full catalog to CSV for
+        WooCommerce, Etsy, Amazon, and more.</p>
+    </div>
+  </div>
+
+  <div class="how-it-works">
+    <h2>How it works</h2>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Upload your entire product catalog</h3>
+        <p>Drag and drop one photo or hundreds at once. No limits on batch size.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>AI generates every listing simultaneously</h3>
+        <p>Every product gets a complete listing — title, description, bullet points, SEO metadata — all generated in
+          parallel in seconds.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Publish everything in one click</h3>
+        <p>Hit Publish All and your entire catalog goes live on Shopify instantly. Or export to CSV for any other
+          platform.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="who-for">
+    <h2>Who is this for</h2>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-icon">✓</div>
+        <p>Shopify merchants with large product catalogs who can't write listings one by one</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">✓</div>
+        <p>Dropshippers who need to list hundreds of new products every week</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">✓</div>
+        <p>Resellers managing thousands of SKUs across multiple platforms</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">✓</div>
+        <p>Anyone wasting hours manually writing product descriptions</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pricing-section">
+    <h2 style="font-size:32px;color:#1a3328;text-align:center;margin-bottom:40px;">Simple, transparent pricing</h2>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <h3>Free</h3>
+        <div class="price">$0</div>
+        <p>10 lifetime generations</p>
+        <ul class="pricing-features">
+          <li>Upload photos</li>
+          <li>AI generates listings</li>
+          <li>View results</li>
+        </ul>
+        <a class="btn btn-outline" href="https://apps.shopify.com/selluminate">Install Free</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Starter</h3>
+        <div class="price">$14.99<span>/month</span></div>
+        <p>50 generations/month</p>
+        <ul class="pricing-features">
+          <li>Publish to Shopify</li>
+          <li>Export CSV</li>
+          <li>Brand Rules</li>
+          <li>History</li>
+        </ul>
+        <a class="btn" href="https://apps.shopify.com/selluminate">Get Started</a>
+      </div>
+      <div class="pricing-card" style="border:2px solid #2d6a4f;">
+        <div
+          style="background:#2d6a4f;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:12px;">
+          MOST POPULAR</div>
+        <h3>Pro</h3>
+        <div class="price">$24.99<span>/month</span></div>
+        <p>100 generations/month</p>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Priority processing</li>
+          <li>Bulk regeneration</li>
+        </ul>
+        <a class="btn" href="https://apps.shopify.com/selluminate">Get Started</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Business</h3>
+        <div class="price">$99.99<span>/month</span></div>
+        <p>500 generations/month</p>
+        <ul class="pricing-features">
+          <li>Everything in Pro</li>
+          <li>500 generations</li>
+          <li>Best for high volume</li>
+        </ul>
+        <a class="btn" href="https://apps.shopify.com/selluminate">Get Started</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="final-cta">
+    <h2>Stop listing products one by one</h2>
+    <p>Selluminate processes your entire catalog at once. 10 free generations included. No credit card required.</p>
+    <a class="btn" href="https://apps.shopify.com/selluminate">Install on Shopify — It's Free</a>
+  </div>
+
+  <footer>
+    <div style="margin-bottom:10px">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+    &copy; 2026 Selluminate. All rights reserved.
+  </footer>
+</body>
+
+</html>
