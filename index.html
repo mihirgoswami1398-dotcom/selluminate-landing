@@ -635,34 +635,47 @@
     <a class="btn" href="https://apps.shopify.com/selluminate">Install on Shopify — It's Free</a>
   </div>
 
-  <footer>
-    <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:40px 40px 32px;text-align:left;">
-      <div>
-        <div style="color:#fff;font-weight:700;font-size:14px;margin-bottom:16px;">Selluminate</div>
-        <div style="color:rgba(255,255,255,.5);font-size:13px;line-height:1.8;">AI bulk product listing generator for Shopify. Generate 500 listings from photos in minutes.</div>
+  <style>
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto; padding: 48px 40px 36px; text-align: left; }
+    .footer-col-label { color: #fff; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 16px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: rgba(255,255,255,.55); text-decoration: none; font-size: 13px; line-height: 1.4; white-space: nowrap; }
+    .footer-links a:hover { color: #fff; }
+    .footer-desc { color: rgba(255,255,255,.45); font-size: 13px; line-height: 1.7; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding: 20px 40px; text-align: center; color: rgba(255,255,255,.35); font-size: 12px; }
+    @media(max-width:640px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; padding: 36px 24px 28px; }
+      .footer-links a { white-space: normal; }
+      .footer-col-brand { grid-column: 1 / -1; }
+      .footer-bottom { padding: 20px 24px; }
+    }
+  </style>
+  <footer style="background:#1a3328;">
+    <div class="footer-grid">
+      <div class="footer-col-brand">
+        <div class="footer-col-label">Selluminate</div>
+        <div class="footer-desc">AI bulk product listing generator for Shopify. Generate 500 listings from photos in minutes.</div>
       </div>
       <div>
-        <div style="color:#fff;font-weight:700;font-size:14px;margin-bottom:16px;">Product</div>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="https://apps.shopify.com/selluminate" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;">Install Free</a>
-          <a href="#how-it-works" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;">How it works</a>
-          <a href="#blog" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;">Pricing</a>
-          <a href="/privacy.html" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;">Privacy Policy</a>
-          <a href="/terms.html" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;">Terms of Service</a>
+        <div class="footer-col-label">Product</div>
+        <div class="footer-links">
+          <a href="https://apps.shopify.com/selluminate">Install Free</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
         </div>
       </div>
       <div>
-        <div style="color:#fff;font-weight:700;font-size:14px;margin-bottom:16px;">Guides</div>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="/bulk-product-listing-generator-shopify.html" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;line-height:1.5;">Bulk Listing Generator for Shopify</a>
-          <a href="/shopify-product-listings-from-photos.html" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;line-height:1.5;">Generate Listings from Product Photos</a>
-          <a href="/dropshipping-product-listing-shopify.html" style="color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;line-height:1.5;">Dropshipping Product Listing Guide</a>
+        <div class="footer-col-label">Guides</div>
+        <div class="footer-links">
+          <a href="/bulk-product-listing-generator-shopify.html">Bulk Listing Generator</a>
+          <a href="/shopify-product-listings-from-photos.html">Listings from Photos</a>
+          <a href="/dropshipping-product-listing-shopify.html">Dropshipping Guide</a>
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,.1);padding:20px 40px;text-align:center;color:rgba(255,255,255,.4);font-size:13px;">
-      &copy; 2026 Selluminate. All rights reserved.
-    </div>
+    <div class="footer-bottom">&copy; 2026 Selluminate. All rights reserved.</div>
   </footer>
 </body>
 
