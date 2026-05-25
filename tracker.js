@@ -28,7 +28,7 @@
     send(endpoint, data) {
       const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
       if (navigator.sendBeacon) { navigator.sendBeacon(API + endpoint, blob); }
-      else { fetch(API + endpoint, { method: 'POST', body: JSON.stringify(data), headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(() => {}); }
+      else { fetch(API + endpoint, { method: 'POST', body: JSON.stringify(data), headers: { 'Content-Type': 'application/json' }, keepalive: true, mode: 'cors' }).catch(() => {}); }
     },
 
     heartbeat() {
