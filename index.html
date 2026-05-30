@@ -9,212 +9,257 @@
   <meta name="description" content="Upload product photos and generate complete SEO-optimized listings for your entire Shopify catalog simultaneously. Titles, descriptions, bullet points, tags, and metadata — all from just a photo. 10 free generations." />
   <meta name="keywords" content="AI bulk listing generator Shopify, bulk product listing generator, AI product descriptions from photos, generate Shopify listings from photos, bulk AI product listing tool, bulk listing tool for Shopify dropshippers" />
   <link rel="icon" type="image/png" href="selluminate icon final.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
+    :root {
+      --color-accent: #4f46e5;
+      --color-purple: #7c3aed;
+      --color-text: #0f172a;
+      --color-text-muted: #475569;
+      --gradient-brand: linear-gradient(to right, #9678ee, #ff9e99 51%, #9678ee);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', 'Mulish', 'Segoe UI', sans-serif; background: #fff; color: var(--color-text); }
+
+    /* ── NAV ── */
+    .llp-nav {
+      position: sticky; top: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      background: radial-gradient(ellipse at top, rgba(255,255,255,.92), transparent), radial-gradient(ellipse at bottom, rgba(254,245,255,.85), transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .llp-nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Inter', sans-serif; font-weight: 800; font-size: 20px;
+      color: var(--color-text); text-decoration: none; letter-spacing: -.3px;
+    }
+    .llp-nav-logo img { height: 36px; width: 36px; border-radius: 8px; }
+    .llp-nav-links { display: flex; align-items: center; gap: 28px; }
+    .llp-nav-links a {
+      font-family: 'Mulish', sans-serif; font-size: 15px; font-weight: 500;
+      color: var(--color-text-muted); text-decoration: none; letter-spacing: .3px;
+      transition: color .2s;
+    }
+    .llp-nav-links a:hover { color: var(--color-accent); }
+    .llp-nav-actions { display: flex; align-items: center; gap: 12px; }
+    .llp-btn-login {
+      font-family: 'Mulish', sans-serif; font-size: 15px; font-weight: 500;
+      color: var(--color-text); text-decoration: none; padding: 8px 16px;
+      border-radius: 8px; transition: background .2s;
+    }
+    .llp-btn-login:hover { background: #f1f5f9; }
+    .llp-btn-nav-cta {
+      font-family: 'Mulish', sans-serif; font-size: 14px; font-weight: 600;
+      background: linear-gradient(to right, #1d1d1d, #4e4e4e 51%, #1d1d1d);
+      background-size: 200% auto; color: #fff;
+      padding: 9px 20px; border-radius: 8px; text-decoration: none;
+      transition: background-position .3s, box-shadow .2s;
+    }
+    .llp-btn-nav-cta:hover {
+      background-position: right center;
+      background: var(--color-purple);
+      box-shadow: 0 2px 12px rgba(124,58,237,.35);
+    }
+    @media(max-width:700px) {
+      .llp-nav-links { display: none; }
+      .llp-nav { padding: 0 20px; }
     }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f2ed;
-      color: #1a1a1a
-    }
-
-    header {
-      background: #1a3328;
-      padding: 20px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: -.3px;
-      display: flex;
-      align-items: center;
-    }
-
-    .logo span {
-      color: #b7e4ce
-    }
-
-    nav a {
-      color: #b7e4ce;
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 14px
-    }
-
-    @media (max-width: 640px) {
-      nav a:not([style]) {
-        display: none;
-      }
-    }
-
-    .hero {
+    /* ── HERO ── */
+    .llp-hero {
+      position: relative; overflow: hidden;
+      background: linear-gradient(180deg, #c4b0e8 0%, #fff 38%);
+      padding: 80px 24px 0;
       text-align: center;
-      padding: 80px 40px 60px
+    }
+    .llp-hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(79,70,229,.08) 0%, transparent 65%);
+    }
+    .llp-hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 999px; padding: 6px 16px;
+      font-size: 13px; font-weight: 600; color: var(--color-text-muted);
+      margin-bottom: 28px; box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    }
+    .llp-hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; }
+    .llp-hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700; line-height: 1.15; letter-spacing: -.04em;
+      color: var(--color-text);
+      max-width: 820px; margin: 0 auto 20px;
+    }
+    .llp-hero h1 .grad {
+      background: var(--gradient-brand);
+      background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+    @keyframes shimmer { to { background-position: 200% center; } }
+    .llp-hero-sub {
+      font-family: 'Mulish', sans-serif; font-size: 18px; font-weight: 400;
+      color: var(--color-text-muted); max-width: 580px; margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .llp-hero-ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
+    .llp-btn-primary {
+      background: var(--gradient-brand); background-size: 200% auto;
+      color: #fff; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px;
+      padding: 14px 32px; border-radius: 10px; text-decoration: none;
+      transition: background-position .3s, box-shadow .2s;
+      box-shadow: 0 4px 18px rgba(150,120,238,.35);
+    }
+    .llp-btn-primary:hover { background-position: right center; box-shadow: 0 6px 24px rgba(150,120,238,.5); }
+    .llp-btn-outline {
+      background: transparent; border: 1.5px solid #0f172a;
+      color: #0f172a; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px;
+      padding: 13px 28px; border-radius: 10px; text-decoration: none;
+      transition: border-color .2s, background .2s, color .2s;
+    }
+    .llp-btn-outline:hover { border-color: var(--color-purple); color: var(--color-purple); background: #faf9fc; }
+    .llp-trust { font-size: 13px; color: #94a3b8; margin-bottom: 40px; }
+
+    /* ── PLATFORM BADGES ── */
+    .llp-platforms {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .llp-plat-tab {
+      display: flex; align-items: center; gap: 7px;
+      padding: 8px 16px; border-radius: 999px;
+      font-family: 'Mulish', sans-serif; font-size: 13px; font-weight: 600;
+      background: #fff; color: #64748b; border: 1px solid #e2e8f0;
+      cursor: default; transition: all .2s;
+    }
+    .llp-plat-tab:hover { background: #f5f3ff; border-color: #a5b4fc; color: var(--color-accent); }
+    .llp-plat-icon { font-size: 15px; }
+
+    /* ── APP MOCKUP + FLOAT CARDS ── */
+    .llp-mockup-wrap {
+      position: relative; max-width: 920px; margin: 0 auto;
+      padding: 0 80px; padding-bottom: 0;
+    }
+    .llp-float-card {
+      position: absolute; background: #fff;
+      border-radius: 14px; padding: 14px 20px;
+      box-shadow: 0 8px 32px rgba(79,70,229,.15), 0 2px 8px rgba(0,0,0,.06);
+      border: 1px solid #e8e4f9;
+      display: flex; align-items: center; gap: 12px;
+      z-index: 10; animation: floatBob 3s ease-in-out infinite;
+    }
+    .llp-float-card:nth-child(2) { animation-delay: 1.5s; }
+    @keyframes floatBob {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+    .llp-float-card-num {
+      font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 800;
+      background: var(--gradient-brand); background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .llp-float-card-label { font-size: 12px; font-weight: 600; color: var(--color-text-muted); white-space: nowrap; }
+    .llp-card-left { left: 0; top: 60px; }
+    .llp-card-right { right: 0; top: 160px; }
+    @media(max-width:960px) {
+      .llp-mockup-wrap { padding: 0 20px; }
+      .llp-card-left { left: 0; top: -50px; transform: scale(.85); transform-origin: left top; }
+      .llp-card-right { right: 0; bottom: -50px; top: auto; transform: scale(.85); transform-origin: right bottom; }
     }
 
-    .hero h1 {
-      font-size: 50px;
-      font-weight: 700;
-      color: #1a3328;
-      margin-bottom: 16px;
-      line-height: 1.2
+    /* Browser window mockup */
+    .llp-browser {
+      background: #f8fafc; border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 20px 60px rgba(0,0,0,.12), 0 4px 16px rgba(79,70,229,.08);
+      overflow: hidden; text-align: left;
     }
-
-    .hero p {
-      font-size: 18px;
-      color: #5a5a5a;
-      max-width: 580px;
-      margin: 0 auto 32px;
-      line-height: 1.6
+    .llp-browser-bar {
+      background: #f1f5f9; padding: 10px 16px;
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 1px solid #e2e8f0;
     }
-
-    .btn {
-      display: inline-block;
-      background: #2d6a4f;
-      color: #fff;
-      padding: 14px 32px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 600
+    .llp-browser-dots { display: flex; gap: 6px; }
+    .llp-browser-dots span {
+      width: 11px; height: 11px; border-radius: 50%;
     }
-
-    .btn:hover {
-      background: #1b4332
+    .llp-browser-dots .d1 { background: #fc5c65; }
+    .llp-browser-dots .d2 { background: #ffd32a; }
+    .llp-browser-dots .d3 { background: #05c46b; }
+    .llp-browser-url {
+      flex: 1; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; padding: 4px 12px;
+      font-size: 12px; color: #94a3b8; font-family: monospace;
     }
-
-    .sub {
-      font-size: 13px;
-      color: #9a9a9a;
-      margin-top: 12px
+    .llp-browser-body { display: flex; }
+    .llp-sidebar {
+      width: 190px; min-width: 190px;
+      background: #fff; border-right: 1px solid #e2e8f0;
+      padding: 18px 0;
     }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 40px 80px
+    .llp-sidebar-logo {
+      display: flex; align-items: center; gap: 8px;
+      padding: 0 16px 16px;
+      font-size: 14px; font-weight: 700; color: var(--color-text);
+      border-bottom: 1px solid #f1f5f9;
     }
-
-    .feature {
-      background: #fff;
-      border-radius: 12px;
-      padding: 28px;
-      border: 1px solid #e4e2db;
-      border-top: 3px solid #b7e4ce;
+    .llp-sidebar-logo .sicon {
+      width: 26px; height: 26px; border-radius: 6px;
+      background: var(--gradient-brand); background-size: 200% auto;
     }
-
-    .feature h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #1a3328
+    .llp-sidebar-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 9px 16px; font-size: 12px; font-weight: 500;
+      color: #64748b; cursor: pointer;
     }
-
-    .feature p {
-      font-size: 14px;
-      color: #5a5a5a;
-      line-height: 1.6
+    .llp-sidebar-item.active { background: #f5f3ff; color: var(--color-accent); border-right: 2px solid var(--color-accent); }
+    .llp-sidebar-item .si { font-size: 14px; }
+    .llp-main {
+      flex: 1; padding: 18px 20px; background: #fafbff;
+      min-height: 340px;
     }
-
-    .icon {
-      font-size: 28px;
-      margin-bottom: 12px
+    .llp-main-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 14px;
     }
-
-    footer {
-      background: #1a3328;
-      color: rgba(255, 255, 255, .5);
-      text-align: center;
-      padding: 24px;
-      font-size: 13px;
+    .llp-main-title { font-size: 14px; font-weight: 700; color: var(--color-text); }
+    .llp-pub-btn {
+      background: var(--gradient-brand); background-size: 200% auto;
+      color: #fff; border: none; border-radius: 7px;
+      padding: 7px 16px; font-size: 11px; font-weight: 700; cursor: pointer;
     }
-
-    footer a {
-      color: rgba(255, 255, 255, .6);
-      text-decoration: none;
-      margin: 0 12px
+    .llp-listing-row {
+      display: flex; align-items: center; gap: 12px;
+      background: #fff; border: 1px solid #e8edf5;
+      border-radius: 9px; padding: 10px 14px;
+      margin-bottom: 8px; transition: box-shadow .2s;
     }
-
-    footer a:hover {
-      color: #fff
+    .llp-listing-row:hover { box-shadow: 0 2px 10px rgba(79,70,229,.08); }
+    .llp-thumb {
+      width: 42px; height: 42px; border-radius: 7px; flex-shrink: 0;
     }
-
-    .pricing-section {
-      padding: 0 40px 100px;
-      max-width: 1000px;
-      margin: 0 auto;
+    .llp-listing-info { flex: 1; min-width: 0; }
+    .llp-listing-name { font-size: 12px; font-weight: 600; color: var(--color-text); margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .llp-seo-wrap { display: flex; align-items: center; gap: 7px; }
+    .llp-seo-bar-bg { flex: 1; height: 5px; background: #e8edf5; border-radius: 999px; overflow: hidden; }
+    .llp-seo-bar-fill { height: 100%; width: 100%; background: #22c55e; border-radius: 999px; }
+    .llp-seo-score { font-size: 10px; font-weight: 700; color: #22c55e; white-space: nowrap; }
+    .llp-badge {
+      font-size: 10px; font-weight: 700; padding: 3px 9px;
+      border-radius: 999px; white-space: nowrap;
     }
-
-    .pricing-cards {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .pricing-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 32px 24px;
-      border: 1px solid #e4e2db;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .pricing-card h3 {
-      font-size: 18px;
-      color: #1a3328;
-      margin-bottom: 12px;
-    }
-
-    .pricing-card .price {
-      font-size: 32px;
-      font-weight: 700;
-      color: #1a3328;
-      margin-bottom: 16px;
-    }
-
-    .pricing-card .price span {
-      font-size: 15px;
-      color: #5a5a5a;
-      font-weight: 400;
-    }
-
-    .pricing-card p {
-      font-size: 14px;
-      color: #5a5a5a;
-      margin-bottom: 24px;
-      flex-grow: 1;
-    }
-
-    .pricing-card .btn {
-      width: 100%;
-      padding: 12px;
-    }
-
-    .pricing-card .btn-outline {
-      background: transparent;
-      color: #1a3328;
-      border: 2px solid #1a3328;
-      padding: 10px;
-    }
-
-    .pricing-card .btn-outline:hover {
-      background: #e4e2db;
-    }
-
+    .llp-badge.published { background: #dcfce7; color: #15803d; }
+  </style>
+  <style>
     .how-it-works {
       max-width: 900px;
       margin: 0 auto;
@@ -420,69 +465,209 @@
       margin-top: 8px;
     }
 
+    /* Sections below hero also need base styles */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+    .feature {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid #e4e2db;
+      border-top: 3px solid #b7e4ce;
+    }
+    .feature h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #1a3328; }
+    .feature p { font-size: 14px; color: #5a5a5a; line-height: 1.6; }
+    .icon { font-size: 28px; margin-bottom: 12px; }
+    .btn {
+      display: inline-block;
+      background: #1a3328;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .btn:hover { background: #0f1f17; }
+    .pricing-section { padding: 60px 40px 100px; max-width: 1060px; margin: 0 auto; }
+    .pricing-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: stretch; }
+    .pricing-card {
+      background: #fff; border-radius: 12px; padding: 32px 24px;
+      border: 1px solid #e4e2db; text-align: center;
+      display: flex; flex-direction: column;
+    }
+    .pricing-card h3 { font-size: 18px; color: #1a3328; margin-bottom: 12px; }
+    .pricing-card .price { font-size: 32px; font-weight: 700; color: #1a3328; margin-bottom: 16px; }
+    .pricing-card .price span { font-size: 15px; color: #5a5a5a; font-weight: 400; }
+    .pricing-card p { font-size: 14px; color: #5a5a5a; min-height: 44px; margin-bottom: 16px; }
+    .pricing-card .btn { width: 100%; padding: 12px; margin-top: auto; }
+    .pricing-card .btn-outline { background: transparent; color: #1a3328; border: 2px solid #1a3328; padding: 10px; }
+    .pricing-card .btn-outline:hover { background: #f0f4f2; }
+    footer { background: #1a3328; color: rgba(255,255,255,.5); text-align: center; padding: 24px; font-size: 13px; }
+    footer a { color: rgba(255,255,255,.6); text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: #fff; }
+
+    @media(max-width:900px) {
+      .pricing-cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width:600px) {
+      .pricing-cards { grid-template-columns: 1fr; }
+    }
     @media(max-width:700px) {
-      .features {
-        grid-template-columns: 1fr
-      }
-
-      .pricing-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 28px
-      }
-
-      .who-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .step {
-        flex-direction: column;
-      }
-
-      .step-num {
-        margin-bottom: 16px;
-      }
-
-      .blog-grid {
-        grid-template-columns: 1fr;
-      }
-
-      footer .footer-grid {
-        grid-template-columns: 1fr !important;
-      }
+      .llp-hero h1 { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+      .llp-platforms { gap: 8px; }
+      .features { grid-template-columns: 1fr; }
+      .who-grid { grid-template-columns: 1fr; }
+      .step { flex-direction: column; }
+      .step-num { margin-bottom: 16px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      footer .footer-grid { grid-template-columns: 1fr !important; }
+      .llp-sidebar { display: none; }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="logo">
-      <img src="selluminate icon final.png"
-        style="height:48px;width:48px;border-radius:8px;vertical-align:middle;margin-right:10px;">
-      <span style="color:#fff;font-size:24px;font-weight:800;">Selluminate</span>
-    </div>
-    <nav>
+  <!-- ── NAVIGATION ── -->
+  <header class="llp-nav">
+    <a href="/" class="llp-nav-logo">
+      <img src="selluminate icon final.png" alt="Selluminate">
+      Selluminate
+    </a>
+    <nav class="llp-nav-links">
+      <a href="#how-it-works">How it works</a>
+      <a href="#pricing">Pricing</a>
       <a href="#blog">Guides</a>
       <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="https://apps.shopify.com/selluminate"
-        style="background:#b7e4ce;color:#1a3328;padding:10px 20px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;margin-left:24px;">Install
-        Free</a>
     </nav>
+    <div class="llp-nav-actions">
+      <a href="https://apps.shopify.com/selluminate" class="llp-btn-login">Log in</a>
+      <a href="https://apps.shopify.com/selluminate" class="llp-btn-nav-cta">Install Free →</a>
+    </div>
   </header>
 
-  <div class="hero">
-    <h1>AI Bulk Product Listing Generator for Shopify — Generate 500 Listings from Photos Instantly</h1>
-    <div style="font-size: 15px; font-weight: 600; color: #1a3328; margin-bottom: 20px;">Upload 1 photo or 500 —
-      Selluminate processes them all at once · Listed on the Shopify App Store</div>
-    <p>Upload as many product photos as you want. Selluminate generates complete, SEO-optimized listings for your entire
-      catalog simultaneously — titles, descriptions, bullet points, SEO tags, and more. Publish everything to Shopify in
-      one click.</p>
-    <a class="btn" href="https://apps.shopify.com/selluminate">Get Started Free</a>
-    <div class="sub">No credit card required · 10 free listings</div>
-  </div>
+  <!-- ── HERO ── -->
+  <section class="llp-hero">
+    <div class="llp-hero-badge">
+      <span class="dot"></span>
+      Listed on the Shopify App Store
+    </div>
+    <h1>Bulk AI Product Listings —<br><span class="grad">Generated from Photos Instantly</span></h1>
+    <p class="llp-hero-sub">Upload your entire product catalog at once. Selluminate generates complete, SEO-optimized titles, descriptions, tags & metadata for every product simultaneously — then publishes to Shopify in one click.</p>
+    <div class="llp-hero-ctas">
+      <a href="https://apps.shopify.com/selluminate" class="llp-btn-primary">Get Started Free</a>
+      <a href="#how-it-works" class="llp-btn-outline">See how it works</a>
+    </div>
+    <p class="llp-trust">No credit card required &nbsp;·&nbsp; 10 free generations &nbsp;·&nbsp; Instant results</p>
+
+    <!-- Platform badges -->
+    <div class="llp-platforms">
+      <div class="llp-plat-tab"><span class="llp-plat-icon">🛍️</span> Shopify</div>
+      <div class="llp-plat-tab"><span class="llp-plat-icon">🛒</span> WooCommerce</div>
+      <div class="llp-plat-tab"><span class="llp-plat-icon">🏷️</span> Etsy</div>
+      <div class="llp-plat-tab"><span class="llp-plat-icon">📦</span> Amazon</div>
+      <div class="llp-plat-tab"><span class="llp-plat-icon">📄</span> CSV Export</div>
+    </div>
+
+    <!-- Mockup + floating stat cards -->
+    <div class="llp-mockup-wrap">
+      <!-- Floating card 1 -->
+      <div class="llp-float-card llp-card-left">
+        <div>
+          <div class="llp-float-card-num">100</div>
+          <div class="llp-float-card-label">SEO score per listing</div>
+        </div>
+      </div>
+      <!-- Floating card 2 -->
+      <div class="llp-float-card llp-card-right">
+        <div>
+          <div class="llp-float-card-num">500+</div>
+          <div class="llp-float-card-label">listings generated at once</div>
+        </div>
+      </div>
+
+      <!-- Browser window -->
+      <div class="llp-browser">
+        <div class="llp-browser-bar">
+          <div class="llp-browser-dots">
+            <span class="d1"></span><span class="d2"></span><span class="d3"></span>
+          </div>
+          <div class="llp-browser-url">app.selluminate.com/listings</div>
+        </div>
+        <div class="llp-browser-body">
+          <!-- Sidebar -->
+          <div class="llp-sidebar">
+            <div class="llp-sidebar-logo">
+              <div class="sicon"></div> Selluminate
+            </div>
+            <div class="llp-sidebar-item active"><span class="si">📋</span> Listings</div>
+            <div class="llp-sidebar-item"><span class="si">📸</span> Upload</div>
+            <div class="llp-sidebar-item"><span class="si">🚀</span> Publish</div>
+            <div class="llp-sidebar-item"><span class="si">📊</span> History</div>
+            <div class="llp-sidebar-item"><span class="si">⚙️</span> Settings</div>
+          </div>
+          <!-- Main content -->
+          <div class="llp-main">
+            <div class="llp-main-header">
+              <div class="llp-main-title">Generated Listings (6 products)</div>
+              <button class="llp-pub-btn">Publish All to Shopify</button>
+            </div>
+            <!-- Listing rows -->
+            <div class="llp-listing-row">
+              <div class="llp-thumb" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);"></div>
+              <div class="llp-listing-info">
+                <div class="llp-listing-name">Premium Leather Crossbody Bag — Midnight Purple</div>
+                <div class="llp-seo-wrap">
+                  <div class="llp-seo-bar-bg"><div class="llp-seo-bar-fill"></div></div>
+                  <span class="llp-seo-score">100/100</span>
+                </div>
+              </div>
+              <span class="llp-badge published">Published</span>
+            </div>
+            <div class="llp-listing-row">
+              <div class="llp-thumb" style="background:linear-gradient(135deg,#f59e0b,#ef4444);"></div>
+              <div class="llp-listing-info">
+                <div class="llp-listing-name">Boho Ceramic Mug Set — Sunrise Collection</div>
+                <div class="llp-seo-wrap">
+                  <div class="llp-seo-bar-bg"><div class="llp-seo-bar-fill"></div></div>
+                  <span class="llp-seo-score">100/100</span>
+                </div>
+              </div>
+              <span class="llp-badge published">Published</span>
+            </div>
+            <div class="llp-listing-row">
+              <div class="llp-thumb" style="background:linear-gradient(135deg,#34d399,#0ea5e9);"></div>
+              <div class="llp-listing-info">
+                <div class="llp-listing-name">Minimalist Linen Throw Pillow Cover — Sage</div>
+                <div class="llp-seo-wrap">
+                  <div class="llp-seo-bar-bg"><div class="llp-seo-bar-fill"></div></div>
+                  <span class="llp-seo-score">100/100</span>
+                </div>
+              </div>
+              <span class="llp-badge published">Published</span>
+            </div>
+            <div class="llp-listing-row">
+              <div class="llp-thumb" style="background:linear-gradient(135deg,#f472b6,#8b5cf6);"></div>
+              <div class="llp-listing-info">
+                <div class="llp-listing-name">Silk Scrunchie Bundle — Pastel Rose & Lavender</div>
+                <div class="llp-seo-wrap">
+                  <div class="llp-seo-bar-bg"><div class="llp-seo-bar-fill"></div></div>
+                  <span class="llp-seo-score">100/100</span>
+                </div>
+              </div>
+              <span class="llp-badge published">Published</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div class="features" style="padding-bottom:0">
     <div class="feature">
@@ -554,7 +739,7 @@
     </div>
   </div>
 
-  <div class="pricing-section">
+  <div class="pricing-section" id="pricing">
     <h2 style="font-size:32px;color:#1a3328;text-align:center;margin-bottom:40px;">Simple, transparent pricing</h2>
     <div class="pricing-cards">
       <div class="pricing-card">
@@ -580,9 +765,9 @@
         </ul>
         <a class="btn" href="https://apps.shopify.com/selluminate">Get Started</a>
       </div>
-      <div class="pricing-card" style="border:2px solid #2d6a4f;">
+      <div class="pricing-card" style="border:2px solid #1a3328;">
         <div
-          style="background:#2d6a4f;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:12px;">
+          style="background:#1a3328;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:12px;">
           MOST POPULAR</div>
         <h3>Pro</h3>
         <div class="price">$24.99<span>/month</span></div>
